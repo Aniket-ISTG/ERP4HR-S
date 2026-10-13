@@ -75,6 +75,7 @@ export async function login(input: LoginInput) {
     },
     include: userWithContext,
   });
+  console.log("Hiiiiiiiiiiiiiiiiiiiiiiii")
   // Same error for unknown user / wrong password / inactive to avoid user enumeration.
   if (!user || !user.isActive) throw new UnauthorizedError('Invalid credentials');
   const ok = await verifyPassword(input.password, user.passwordHash);
